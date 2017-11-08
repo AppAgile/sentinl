@@ -437,7 +437,7 @@ export default function (server, actions, payload, watch) {
     */
 
     var querystring = require('querystring');
-    var http = require('http');
+    var http = require('https');
     var webhookBody;
     var options;
     var req;
@@ -445,7 +445,7 @@ export default function (server, actions, payload, watch) {
       webhookBody = action.webhook.body ? mustache.render(action.webhook.body, {payload: payload}) : null;
 
       options = {
-        protocol: action.webhook.protocol ? action.webhook.protocol : 'http:',
+        protocol: action.webhook.protocol ? action.webhook.protocol : 'https:',
         hostname: action.webhook.host ? action.webhook.host : 'localhost',
         port: action.webhook.port ? action.webhook.port : 80,
         path: action.webhook.path ? action.webhook.path : '/',
