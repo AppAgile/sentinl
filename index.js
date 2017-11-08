@@ -41,6 +41,8 @@ export default function (kibana) {
       return Joi.object({
         enabled: Joi.boolean().default(true),
         es: Joi.object({
+          host: Joi.string().default('localhost'),
+          port: Joi.number().default(9200),
           timefield: Joi.string().default('@timestamp'),
           default_index: Joi.string().default('watcher'),
           type: Joi.string().default('watch'),
